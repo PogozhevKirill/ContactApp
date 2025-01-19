@@ -82,7 +82,7 @@ namespace ContactsApp
             get { return _birth; }
             set
             {
-                if (value > DateTime.Now)
+                if (value > DateTime.Now.AddDays(1))
                 {
                     throw new ArgumentException("Дата рождения не может быть больше текушей даты");
                 }

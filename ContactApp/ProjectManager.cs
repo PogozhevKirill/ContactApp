@@ -47,6 +47,13 @@ namespace ContactsApp
         /// <returns>Загруженные данные.</returns>
         public static Project LoadFromFile(string fileName)
         {
+            if (!File.Exists(fileName))
+            {
+                // Создаем файл и сохраняем пустой список контактов
+                Project emptyProject = new Project();
+                SaveToFile(emptyProject, fileName);
+            }
+
             Project contact = new Project();
             //Создаём экземпляр сериализатора.
             JsonSerializer serializer = new JsonSerializer();
